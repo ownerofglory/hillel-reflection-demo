@@ -19,8 +19,7 @@ public class CacheHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (method.isAnnotationPresent(Cacheable.class)) {
             if (args.length > 0) {
-                String nameArg = (String) args[0];
-                String name = nameArg.toLowerCase();
+                Object name =  args[0];
 
                 if (cache.containsKey(name)) {
                     return cache.get(name);

@@ -18,7 +18,7 @@ public class DrinkServiceDefault implements DrinkService {
 
     @Override
     public Drink getDrinkByName(String name) throws DrinkClientException {
-        CocktailResponse byName = drinkClient.getByName(name);
+        CocktailResponse byName = drinkClient.getByName(name.toLowerCase());
 
 
         return cocktailResponseToDrink(byName);
